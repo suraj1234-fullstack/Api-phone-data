@@ -62,7 +62,7 @@ const products  = [
 ];
 
 
-app.get('/products' , (req,res)=>{
+app.get('/' , (req,res)=>{
     const category =req.query.category
 
         if(category){
@@ -72,7 +72,7 @@ app.get('/products' , (req,res)=>{
             res.json({success : true , item :products})
 }) 
 
-app.get('/products/:id',(req,res)=>{
+app.get('/:id',(req,res)=>{
     const product = products.find(p => p.id === parseInt(req.params.id))
     if (!product){
         return res.status(404).json({success:false , message:"product id invalid"})
